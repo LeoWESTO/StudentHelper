@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:StudentHelper"
+            xmlns:local1="clr-namespace:StudentHelper.Views"
+            x:Class="StudentHelper.Views.MenuPage"
+            Title="StudentHelper">
+    <TabbedPage.Children>
+        <local:TimetablePage Icon="timetable"/>
+        <local:HomeworkPage Icon="homework"/>
+        <local1:SubjectsPage Icon="subjects"/>
+        <local:InfoPage Icon="info"/>
+    </TabbedPage.Children>
+</TabbedPage>

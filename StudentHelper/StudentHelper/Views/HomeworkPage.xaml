@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentHelper.HomeworkPage">
+    <ScrollView>
+        <StackLayout>
+            <Button Text="Новое домашнее задание"
+                    HorizontalOptions="FillAndExpand"
+                    Clicked="AddHomework"
+                    IsEnabled="{Binding IsEnabled}"/>
+            <ListView ItemsSource="{Binding HomeworkList}"
+                      HasUnevenRows="True"
+                      ItemSelected="HomeworkEdit">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" Margin="10">
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                                        <Label Text="{Binding Subject.Title}" FontSize="Medium" TextColor="Black"/>
+                                        <Label Text="{Binding Task}" FontSize="Micro" LineBreakMode="WordWrap"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

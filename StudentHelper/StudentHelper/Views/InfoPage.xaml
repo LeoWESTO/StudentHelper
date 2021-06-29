@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentHelper.InfoPage">
+    <ScrollView>
+        <StackLayout>
+            <Label Text="Дополнительные данные"
+                   HorizontalTextAlignment="Center"
+                   FontSize="Medium"
+                   TextColor="Black"
+                   Margin="5"/>
+            <StackLayout Orientation="Horizontal" Margin="10">
+                <Label Text="Факультет" VerticalOptions="CenterAndExpand"/>
+                <Entry Text="{Binding Faculty}" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="10">
+                <Label Text="Кафедра" VerticalOptions="CenterAndExpand"/>
+                <Entry Text="{Binding Cathedra}" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="10">
+                <Label Text="Направление" VerticalOptions="CenterAndExpand"/>
+                <Entry Text="{Binding Direction}" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="10">
+                <Label Text="Специальность" VerticalOptions="CenterAndExpand"/>
+                <Entry Text="{Binding Speciality}" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="10">
+                <Label Text="Группа" VerticalOptions="CenterAndExpand"/>
+                <Entry Text="{Binding Group}" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="10">
+                <Label Text="Дата начала первой недели семестра" VerticalOptions="CenterAndExpand"/>
+                <DatePicker Date="{Binding StartDate}" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            <Button HorizontalOptions="FillAndExpand"
+                    Margin="10"
+                    Text="Сохранить"
+                    IsEnabled="{Binding IsSaveable}"
+                    Clicked="SaveInfo"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
