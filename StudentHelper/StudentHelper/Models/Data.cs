@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
-using Xamarin.Forms;
 
 namespace StudentHelper.Models
 {
@@ -10,14 +10,29 @@ namespace StudentHelper.Models
     {
         public static Term CurrentTerm { get; set; }
 
-        public static void Save()
+        private static DataContext _db;
+
+        public static void Update()
         {
-            DependencyService.Get<IFileWorker>().SaveDataAsync("Term.sh", CurrentTerm);
+            _db.Update(CurrentTerm);
+            _db.SaveChanges();
+        }
+        
+        public static void Save(Term term)
+        {
+            _db.Add(term);
+            _db.SaveChanges();
         }
 
-        public static void Load()
+        public static bool Load(string path)
         {
-            CurrentTerm = DependencyService.Get<IFileWorker>().LoadDataAsync("Term.sh");
+            _db = new DataContext(path);
+            if (!_db.Database.EnsureCreated())
+            {
+                CurrentTerm = _db.Terms.ToArray()[0];
+                return true;
+            }
+            else return false;
         }
     }
 }
