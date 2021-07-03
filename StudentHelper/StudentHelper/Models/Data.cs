@@ -27,7 +27,8 @@ namespace StudentHelper.Models
         public static bool Load(string path)
         {
             _db = new DataContext(path);
-            if (!_db.Database.EnsureCreated())
+            _db.Database.EnsureDeleted(); //для дебага
+            if (!_db.Database.EnsureCreated() && _db.Terms.Count() > 0)
             {
                 CurrentTerm = _db.Terms.ToArray()[0];
                 return true;

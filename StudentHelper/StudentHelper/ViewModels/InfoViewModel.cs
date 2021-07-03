@@ -89,12 +89,12 @@ namespace StudentHelper.ViewModels
 
         public DateTime StartDate
         {
-            get { return Data.CurrentTerm.Info.StartDate; }
+            get { return Data.CurrentTerm.StartDate; }
             set
             {
-                if (Data.CurrentTerm.Info.StartDate != value)
+                if (Data.CurrentTerm.StartDate != value)
                 {
-                    Data.CurrentTerm.Info.StartDate = value;
+                    Data.CurrentTerm.StartDate = value;
                     IsSaveable = true;
                     OnPropertyChanged("StartDate");
                     OnPropertyChanged("IsSaveable");

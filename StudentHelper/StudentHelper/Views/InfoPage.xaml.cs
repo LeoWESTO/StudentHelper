@@ -24,7 +24,7 @@ namespace StudentHelper
 
         private void SaveInfo(object sender, System.EventArgs e)
         {
-            Data.Save();
+            Data.Update();
             vm.IsSaveable = false;
         }
     }

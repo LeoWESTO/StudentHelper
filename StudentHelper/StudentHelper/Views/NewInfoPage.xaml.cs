@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentHelper.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,13 @@ namespace StudentHelper.Views
         public NewInfoPage()
         {
             InitializeComponent();
+            numberLabel.Text = "1";
+        }
+
+        private void NumberStepper(object sender, ValueChangedEventArgs e)
+        {
+            if (numberLabel != null) numberLabel.Text = e.NewValue.ToString();
+            Data.CurrentTerm.Number = (int)e.NewValue;
         }
     }
 }

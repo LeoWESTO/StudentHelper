@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
+using Xamarin.Forms;
 
+[assembly: Dependency(typeof(StudentHelper.iOS.IosDBPath))]
 namespace StudentHelper.iOS
 {
     public class IosDBPath : IFileWorker

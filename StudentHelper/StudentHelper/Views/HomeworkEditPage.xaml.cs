@@ -24,12 +24,7 @@ namespace StudentHelper.Views
 
         private void AddHomework(object sender, EventArgs e)
         {
-            Data.CurrentTerm.Homeworks.Add(new Homework() {
-                Subject = Data.CurrentTerm.Subjects.Single(s => s.Title == picker.SelectedItem.ToString()),
-                Task = vm.Task,
-                IsComplited = false,
-            });
-            Navigation.PopAsync(true);
+            
         }
     }
 }

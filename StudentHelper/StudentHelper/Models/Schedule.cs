@@ -8,6 +8,7 @@ namespace StudentHelper.Models
 {
     public class Schedule
     {
+        public int Id { get; set; }
         public Subject Subject { get; set; }
         public int SubjectId { get; set; }
         public LessonType Type { get; set; }

@@ -1,6 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="StudentHelper.Views.NewInfoPage">
-    
+             x:Class="StudentHelper.Views.NewInfoPage"
+             Title="Создать новый семестр">
+    <StackLayout VerticalOptions="CenterAndExpand">
+        <StackLayout Orientation="Horizontal" Margin="10">
+            <Label Text="Номер семестра:"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="Start"
+                   FontSize="Medium"/>
+            <Label Text="{Binding Number}"
+                   x:Name="numberLabel"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="Start"
+                   FontSize="Medium"/>
+            <Stepper Minimum="1" 
+                     Maximum="10" 
+                     Increment="1" 
+                     HorizontalOptions="EndAndExpand"
+                     Value="{Binding Number}"
+                     ValueChanged="NumberStepper"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Margin="10">
+            <Label Text="Дата начала первой недели семестра"
+                       VerticalOptions="CenterAndExpand"
+                       FontSize="Medium"/>
+            <DatePicker Date="{Binding StartDate}" HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+        <Button Text="Создать" Margin="20"/>
+    </StackLayout>
 </ContentPage>

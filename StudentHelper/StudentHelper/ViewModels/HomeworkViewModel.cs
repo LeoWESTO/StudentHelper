@@ -10,8 +10,8 @@ namespace StudentHelper.ViewModels
     public class HomeworkViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        
-        public ObservableCollection<Homework> HomeworkList => Data.CurrentTerm.Homeworks;
+
+        public ObservableCollection<Homework> HomeworkList;
         public bool IsEnabled => Data.CurrentTerm.Subjects.Count > 0;
 
         protected void OnPropertyChanged(string propName)
