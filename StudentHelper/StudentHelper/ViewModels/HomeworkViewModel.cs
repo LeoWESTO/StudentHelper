@@ -14,6 +14,12 @@ namespace StudentHelper.ViewModels
         public ObservableCollection<Homework> HomeworkList;
         public bool IsEnabled => Data.CurrentTerm.Subjects.Count > 0;
 
+        public HomeworkViewModel()
+        {
+            if (Data.CurrentTerm.Subjects == null) 
+                Data.CurrentTerm.Subjects = new ObservableCollection<Subject>();
+        }
+
         protected void OnPropertyChanged(string propName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));

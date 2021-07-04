@@ -3,8 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StudentHelper.InfoPage">
     <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Выбрать семестр"
+                     Order="Secondary"
+                     Clicked="SelectTerm"/>
         <ToolbarItem Text="Стереть все данные"
-                     Order="Primary"/>
+                     Order="Secondary"
+                     Clicked="ClearData"/>
     </ContentPage.ToolbarItems>
     <ScrollView>
         <StackLayout>

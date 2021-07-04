@@ -13,7 +13,7 @@ namespace StudentHelper.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MenuPage : TabbedPage
     {
-        public MenuPage (bool isNew)
+        public MenuPage(bool isNew)
         {
             InitializeComponent();
             if (isNew)

@@ -19,13 +19,17 @@ namespace StudentHelper
             bool isNew = false;
             if (!Data.Load(dbPATH))
             {
-                Data.CurrentTerm = new Term()
-                {
-                    StartDate = DateTime.Now,
-                    Subjects = new ObservableCollection<Subject>(),
-                    Weeks = new ObservableCollection<Week>(),
-                    Info = new Info()
-                };
+                Data.CurrentTerm = new Term();
+
+                Data.CurrentTerm.StartDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+
+                Week w1 = new Week() { Term = Data.CurrentTerm };
+                Week w2 = new Week() { Term = Data.CurrentTerm };
+                Data.CurrentTerm.Weeks = new ObservableCollection<Week> { w1, w2 };
+
+                Data.CurrentTerm.Info = new Info() { Term = Data.CurrentTerm };
+
+                Data.Save(Data.CurrentTerm);
                 isNew = true;
             }
             MainPage = new NavigationPage(new MenuPage(isNew));
