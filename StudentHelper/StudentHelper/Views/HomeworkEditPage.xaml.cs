@@ -14,17 +14,12 @@ namespace StudentHelper.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class HomeworkEditPage : ContentPage
 	{
-        HomeworkEditViewModel vm;
-		public HomeworkEditPage (Homework hw)
+        EditHomeworkViewModel vm;
+		public HomeworkEditPage (Homework hw = null, Subject subject = null, LessonType type = LessonType.Seminar)
 		{
 			InitializeComponent();
-            vm = new HomeworkEditViewModel(hw);
+            vm = new EditHomeworkViewModel(hw, subject, type, Navigation);
             BindingContext = vm;
 		}
-
-        private void AddHomework(object sender, EventArgs e)
-        {
-            
-        }
     }
 }

@@ -4,6 +4,71 @@
              x:Class="StudentHelper.Views.SubjectsPage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Добавить предмет"
-                     Order="Primary"/>
+                     Order="Secondary"
+                     Command="{Binding Add}"/>
+        <ToolbarItem Text="Обновить"
+                     Order="Secondary"
+                     Command="{Binding Refresh}"/>
     </ContentPage.ToolbarItems>
+    <ScrollView>
+        <ListView HasUnevenRows="True"
+                  ItemsSource="{Binding SubjectItems, Mode=TwoWay}"
+                  SelectedItem="{Binding SelectedSubjectItem, Mode=TwoWay}">
+            <ListView.Header>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding TotalSubjects}"
+                           FontSize="Medium"
+                           HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Margin="10">
+                                <Label Text="{Binding Title}"
+                                       FontAttributes="Bold"
+                                       FontSize="Title"
+                                       HorizontalTextAlignment="Center"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label  Text="ФИО преподавателя:"
+                                            FontSize="Medium"
+                                            VerticalOptions="CenterAndExpand"
+                                            TextColor="Black"/>
+                                    <Label  Text="{Binding TeacherName}"
+                                            FontSize="Medium"
+                                            VerticalOptions="CenterAndExpand"
+                                            HorizontalOptions="EndAndExpand"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label  Text="{Binding IsExamString}"
+                                            TextColor="Black"
+                                            FontSize="Medium"
+                                            VerticalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label  Text="Сумма баллов:"
+                                            FontSize="Medium"
+                                            VerticalOptions="CenterAndExpand"
+                                            TextColor="Black"/>
+                                    <Label  Text="{Binding PointsSum}"
+                                            FontSize="Medium"
+                                            VerticalOptions="CenterAndExpand"
+                                            HorizontalOptions="EndAndExpand"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label  Text="{Binding GoalPoint}"
+                                            TextColor="{Binding GoalColor}"
+                                            FontSize="Medium"
+                                            VerticalOptions="CenterAndExpand"
+                                            HorizontalOptions="CenterAndExpand"
+                                            HorizontalTextAlignment="Center"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ScrollView>
 </ContentPage>

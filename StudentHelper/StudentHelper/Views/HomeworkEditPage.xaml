@@ -3,24 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StudentHelper.Views.HomeworkEditPage"
              Title="Домашнее задание">
-    <ScrollView>
-        <StackLayout>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Удалить"
+                     Order="Primary"
+                     Command="{Binding Delete}"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <StackLayout Margin="10">
             <Picker Title="Предмет"
-                    x:Name="picker"
                     TextColor="Black"
                     FontSize="Large"
                     ItemsSource="{Binding SubjTitles}"
-                    Margin="10"/>
-            <Label Text="Задание"
-                   FontSize="Micro"/>
-            <Editor Text="{Binding Task}"
-                    MinimumHeightRequest="100"
-                    BackgroundColor="Gold"
-                    TextColor="Black"/>
-            <Button Text="Добавить"
-                    HorizontalOptions="CenterAndExpand"
-                    Margin="10"
-                    Clicked="AddHomework"/>
+                    SelectedIndex="{Binding SelectedSubj}"/>
+            <Picker Title="Вид занятия"
+                    TextColor="Black"
+                    FontSize="Large"
+                    ItemsSource="{Binding SubjTypes}"
+                    SelectedIndex="{Binding SelectedTypes}"/>
         </StackLayout>
-    </ScrollView>
+
+        <Label  Text="Задание"
+                FontSize="Medium"
+                HorizontalOptions="CenterAndExpand"/>
+        <Editor Text="{Binding Task}"
+                TextColor="Black"
+                VerticalOptions="FillAndExpand"
+                Keyboard="Plain"/>
+        <Button Text="Добавить"
+                HorizontalOptions="CenterAndExpand"
+                Margin="10"
+                Command="{Binding Add}"
+                />
+    </StackLayout>
 </ContentPage>

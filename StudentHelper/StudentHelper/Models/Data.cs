@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace StudentHelper.Models
 {
@@ -33,8 +30,6 @@ namespace StudentHelper.Models
         public static bool Load(string path)
         {
             _db = new DataContext(path);
-            
-            //_db.Database.EnsureDeleted(); //для дебага
             if (!_db.Database.EnsureCreated() && _db.Terms.Count() > 0)
             {
                 Terms = _db.Terms.ToList();

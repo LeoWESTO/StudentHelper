@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentHelper.Views.EditSubjectPage"
+             Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Удалить"
+                     Order="Primary"
+                     Command="{Binding Delete}"/>
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <StackLayout>
+            
+            <StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="10">
+                    <Label Text="Название предмета"
+                       FontSize="Medium"
+                       VerticalOptions="CenterAndExpand"/>
+                    <Entry  Text="{Binding Title}"
+                            HorizontalOptions="FillAndExpand"
+                            WidthRequest="100"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="10">
+                    <Label Text="ФИО преподавателя"
+                       FontSize="Medium"
+                       VerticalOptions="CenterAndExpand"/>
+                    <Entry Text="{Binding TeacherName}"
+                       HorizontalOptions="FillAndExpand"
+                           WidthRequest="100"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="10">
+                    <Label Text="{Binding IsExamString}"
+                       FontSize="Medium"
+                       VerticalOptions="CenterAndExpand"/>
+                    <Switch IsToggled="{Binding IsExam}"
+                        HorizontalOptions="EndAndExpand"/>
+                </StackLayout>
+            </StackLayout>
+            
+            <StackLayout Margin="10">
+                <StackLayout Orientation="Horizontal" Margin="10">
+                    <Label Text="Первая аттестация"
+                       FontSize="Medium"
+                       VerticalOptions="CenterAndExpand"/>
+                    <Entry  Text="{Binding FirstAtt}"
+                            HorizontalOptions="FillAndExpand"
+                            Keyboard="Numeric"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="10">
+                    <Label Text="Вторая аттестация"
+                       FontSize="Medium"
+                       VerticalOptions="CenterAndExpand"/>
+                    <Entry  Text="{Binding SecondAtt}"
+                            HorizontalOptions="FillAndExpand"
+                            Keyboard="Numeric"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="10">
+                    <Label Text="Третья аттестация"
+                       FontSize="Medium"
+                       VerticalOptions="CenterAndExpand"/>
+                    <Entry  Text="{Binding ThirdAtt}"
+                            HorizontalOptions="FillAndExpand"
+                            Keyboard="Numeric"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="10">
+                    <Label Text="Посещаемость"
+                       FontSize="Medium"
+                       VerticalOptions="CenterAndExpand"/>
+                    <Entry  Text="{Binding Attendance}"
+                            HorizontalOptions="FillAndExpand"
+                            Keyboard="Numeric"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="10">
+                    <Label Text="Сессия"
+                       FontSize="Medium"
+                       VerticalOptions="CenterAndExpand"/>
+                    <Entry  Text="{Binding Session}"
+                            HorizontalOptions="FillAndExpand"
+                            Keyboard="Numeric"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Margin="10">
+                <Button Text="Сохранить" Command="{Binding Save}"/>
+            </StackLayout>
+            
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -2,12 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StudentHelper.HomeworkPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Добавить Д/З"
+                     Command="{Binding Edit}"/>
+    </ContentPage.ToolbarItems>
     <ScrollView>
         <StackLayout>
-            <Button Text="Новое домашнее задание"
-                    HorizontalOptions="FillAndExpand"
-                    Clicked="AddHomework"
-                    IsEnabled="{Binding IsEnabled}"/>
             <ListView ItemsSource="{Binding HomeworkList}"
                       HasUnevenRows="True"
                       ItemSelected="HomeworkEdit">

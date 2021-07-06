@@ -1,4 +1,5 @@
-﻿using StudentHelper.ViewModels;
+﻿using StudentHelper.Models;
+using StudentHelper.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +12,15 @@ using Xamarin.Forms.Xaml;
 namespace StudentHelper.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class SubjectsPage : ContentPage
-	{
-		private SubjectsListViewModel vm;
-		public SubjectsPage()
+    public partial class EditSubjectPage : ContentPage
+    {
+        private EditSubjectViewModel vm;
+
+        public EditSubjectPage(Subject subject = null)
         {
             InitializeComponent();
-			vm = new SubjectsListViewModel(Navigation);
+            vm = new EditSubjectViewModel(subject, Navigation);
             BindingContext = vm;
         }
-	}
+    }
 }
