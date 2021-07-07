@@ -146,14 +146,18 @@ namespace StudentHelper.ViewModels
             Data.Update();
             Navigation.PopAsync();
         }
-        private void DeleteSubject()
+        private async void DeleteSubject()
         {
-            if (!isNew)
+            var ans = await Application.Current.MainPage.DisplayAlert(
+                "Удаление", 
+                "Вы действительно хотите удалить предмет из базы?", 
+                "Да", "Нет");
+            if (!isNew && ans)
             {
                 Data.CurrentTerm.Subjects.Remove(Data.CurrentTerm.Subjects.Single(s => s.Id == subject.Id));
                 Data.Update();
             }
-            Navigation.PopAsync();
+            await Navigation.PopAsync();
         }
     }
 }

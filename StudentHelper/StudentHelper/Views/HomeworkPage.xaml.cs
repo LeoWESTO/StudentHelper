@@ -15,23 +15,17 @@ namespace StudentHelper
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class HomeworkPage : ContentPage
 	{
-        HomeworkViewModel vm;
+        HomeworkListViewModel vm;
 
 		public HomeworkPage ()
 		{
 			InitializeComponent ();
-            vm = new HomeworkViewModel(Navigation);
+            vm = new HomeworkListViewModel(Navigation);
             BindingContext = vm;
 		}
-
-        private async void HomeworkEdit(object sender, SelectedItemChangedEventArgs e)
+		protected override void OnAppearing()
         {
-            Homework selectedHomework = e.SelectedItem as Homework;
-            if (selectedHomework != null)
-            {
-                ((ListView)sender).SelectedItem = null;
-                await Navigation.PushAsync(new HomeworkEditPage(selectedHomework));
-            }
+			vm.RefreshList();
         }
     }
 }

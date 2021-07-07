@@ -20,5 +20,10 @@ namespace StudentHelper.Views
 			vm = new SubjectsListViewModel(Navigation);
             BindingContext = vm;
         }
+
+        protected override void OnAppearing()
+        {
+            vm.RefreshList();
+        }
 	}
 }

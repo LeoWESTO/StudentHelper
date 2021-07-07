@@ -40,7 +40,7 @@ namespace StudentHelper.ViewModels
             }
             else if (sum >= 56 && sum < 70)
             {
-                GoalColor = Color.Yellow;
+                GoalColor = Color.Gold;
                 return str + (70 - sum) + " баллов до оценки \"4\"";
             }
             else if (sum>=70 && sum < 85)

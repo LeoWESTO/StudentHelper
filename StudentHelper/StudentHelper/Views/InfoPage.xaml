@@ -12,30 +12,35 @@
     </ContentPage.ToolbarItems>
     <ScrollView>
         <StackLayout>
-            <Label Text="Дополнительные данные"
-                   HorizontalTextAlignment="Center"
-                   FontSize="Medium"
-                   TextColor="Black"
-                   Margin="5"/>
             <StackLayout Orientation="Horizontal" Margin="10">
                 <Label Text="Факультет" VerticalOptions="CenterAndExpand"/>
-                <Entry Text="{Binding Faculty}" HorizontalOptions="FillAndExpand"/>
+                <Entry Text="{Binding Faculty}" 
+                       HorizontalOptions="FillAndExpand"
+                       WidthRequest="100"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" Margin="10">
                 <Label Text="Кафедра" VerticalOptions="CenterAndExpand"/>
-                <Entry Text="{Binding Cathedra}" HorizontalOptions="FillAndExpand"/>
+                <Entry Text="{Binding Cathedra}" 
+                       HorizontalOptions="FillAndExpand"
+                       WidthRequest="100"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" Margin="10">
                 <Label Text="Направление" VerticalOptions="CenterAndExpand"/>
-                <Entry Text="{Binding Direction}" HorizontalOptions="FillAndExpand"/>
+                <Entry Text="{Binding Direction}" 
+                       HorizontalOptions="FillAndExpand"
+                       WidthRequest="100"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" Margin="10">
                 <Label Text="Специальность" VerticalOptions="CenterAndExpand"/>
-                <Entry Text="{Binding Speciality}" HorizontalOptions="FillAndExpand"/>
+                <Entry Text="{Binding Speciality}" 
+                       HorizontalOptions="FillAndExpand"
+                       WidthRequest="100"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" Margin="10">
                 <Label Text="Группа" VerticalOptions="CenterAndExpand"/>
-                <Entry Text="{Binding Group}" HorizontalOptions="FillAndExpand"/>
+                <Entry Text="{Binding Group}" 
+                       HorizontalOptions="FillAndExpand"
+                       WidthRequest="100"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" Margin="10">
                 <Label Text="Дата начала первой недели семестра" VerticalOptions="CenterAndExpand"/>

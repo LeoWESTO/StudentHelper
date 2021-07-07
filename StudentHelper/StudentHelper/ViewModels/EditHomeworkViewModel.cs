@@ -16,6 +16,7 @@ namespace StudentHelper.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         private INavigation Navigation { get; set; }
         public ICommand Add { get; }
+        public ICommand Delete { get; }
         public string Task
         {
             get { return homework.Task; }
@@ -46,12 +47,11 @@ namespace StudentHelper.ViewModels
                 if (SubjTypes[value] == "Лабораторная") homework.Type = LessonType.Lab;
             }
         }
-        public EditHomeworkViewModel(Homework hw, Subject sub, LessonType type, INavigation navigation)
+        public EditHomeworkViewModel(Homework hw, INavigation navigation)
         {
             Navigation = navigation;
             Add = new Command(AddHomework);
-
-
+            Delete = new Command(DeleteHomework);
             if (hw == null)
             {
                 homework = new Homework();
@@ -76,9 +76,31 @@ namespace StudentHelper.ViewModels
                 {
                     if (homework.Subject.Homeworks == null) homework.Subject.Homeworks = new System.Collections.ObjectModel.ObservableCollection<Homework>();
                     homework.Subject.Homeworks.Add(homework);
-                    Data.Update();
                 }
+                else
+                {
+                    var i = Data.CurrentTerm.Subjects.IndexOf(
+                        Data.CurrentTerm.Subjects.Single(s => s.Id == homework.Subject.Id));
+                    var j = Data.CurrentTerm.Subjects[i].Homeworks.IndexOf(
+                        Data.CurrentTerm.Subjects[i].Homeworks.Single(h => h.Id == homework.Id));
+                    Data.CurrentTerm.Subjects[i].Homeworks[j] = homework;
+                }
+                Data.Update(); 
+                Navigation.PopAsync();
             }
+            else
+            {
+                Application.Current.MainPage.DisplayAlert("Ошибка", "По какому предмету Д/З?", "Ок");
+            }
+        }
+        private void DeleteHomework()
+        {
+            if (!isNew)
+            {
+                Data.CurrentTerm.Subjects.Single(s => s.Id == homework.Subject.Id).Homeworks.Remove(homework);
+                Data.Update();
+            }
+            Navigation.PopAsync();
         }
     }
 }

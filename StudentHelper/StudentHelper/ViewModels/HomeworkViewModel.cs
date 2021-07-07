@@ -1,37 +1,34 @@
 ﻿using StudentHelper.Models;
-using StudentHelper.Views;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
-using System.Windows.Input;
-using Xamarin.Forms;
 
 namespace StudentHelper.ViewModels
 {
     public class HomeworkViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        private INavigation Navigation { get; set; }
-        public ICommand Edit { get; }
-        public ObservableCollection<Homework> HomeworkList { get; set; }
-
-        public HomeworkViewModel(INavigation navigation)
+        public Homework Homework { get; private set; }
+        public string Title => Homework.Subject.Title;
+        public string Type
         {
-            Navigation = navigation;
-            Edit = new Command(AddHomework);
-            if (Data.CurrentTerm.Subjects == null) 
-                Data.CurrentTerm.Subjects = new ObservableCollection<Subject>();
+            get
+            {
+                if (Homework.Type == LessonType.Lecture) return "Лекция";
+                if (Homework.Type == LessonType.Seminar) return "Практика";
+                if (Homework.Type == LessonType.Lab) return "Лабораторная";
+                return "";
+            }
         }
-
+        public string Task => Homework.Task;
+        public HomeworkViewModel(Homework homework)
+        {
+            Homework = homework;
+        }
         protected void OnPropertyChanged(string propName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
-        }
-        private void AddHomework()
-        {
-            Navigation.PushAsync(new HomeworkEditPage());
         }
     }
 }

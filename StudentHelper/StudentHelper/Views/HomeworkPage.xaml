@@ -4,28 +4,33 @@
              x:Class="StudentHelper.HomeworkPage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Добавить Д/З"
-                     Command="{Binding Edit}"/>
+                     Command="{Binding Add}"/>
     </ContentPage.ToolbarItems>
     <ScrollView>
-        <StackLayout>
-            <ListView ItemsSource="{Binding HomeworkList}"
-                      HasUnevenRows="True"
-                      ItemSelected="HomeworkEdit">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <ViewCell.View>
-                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" Margin="10">
-                                    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
-                                        <Label Text="{Binding Subject.Title}" FontSize="Medium" TextColor="Black"/>
-                                        <Label Text="{Binding Task}" FontSize="Micro" LineBreakMode="WordWrap"/>
-                                    </StackLayout>
+        <ListView ItemsSource="{Binding HomeworkList}"
+                  HasUnevenRows="True"
+                  SelectedItem="{Binding SelectedHomeworkItem, Mode=TwoWay}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" Margin="10">
+                                <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                                    <Label Text="{Binding Title}" 
+                                           FontSize="Medium" 
+                                           TextColor="Black"
+                                           HorizontalTextAlignment="Center"/>
+                                    <Label Text="{Binding Type}" 
+                                           FontSize="Medium"/>
+                                    <Label Text="{Binding Task}" 
+                                           FontSize="Micro" 
+                                           LineBreakMode="WordWrap"/>
                                 </StackLayout>
-                            </ViewCell.View>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ScrollView>
 </ContentPage>

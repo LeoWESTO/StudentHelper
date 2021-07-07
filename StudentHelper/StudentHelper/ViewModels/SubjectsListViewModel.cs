@@ -51,7 +51,7 @@ namespace StudentHelper.ViewModels
         {
             Navigation.PushAsync(new EditSubjectPage(selectedSubjectItem.Subject));
         }
-        private void RefreshList()
+        public void RefreshList()
         {
             SubjectItems.Clear();
             foreach (var s in Data.CurrentTerm.Subjects)

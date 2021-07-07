@@ -4,11 +4,8 @@
              x:Class="StudentHelper.Views.SubjectsPage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Добавить предмет"
-                     Order="Secondary"
+                     Order="Primary"
                      Command="{Binding Add}"/>
-        <ToolbarItem Text="Обновить"
-                     Order="Secondary"
-                     Command="{Binding Refresh}"/>
     </ContentPage.ToolbarItems>
     <ScrollView>
         <ListView HasUnevenRows="True"
@@ -41,10 +38,14 @@
                                             HorizontalOptions="EndAndExpand"/>
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
-                                    <Label  Text="{Binding IsExamString}"
-                                            TextColor="Black"
+                                    <Label  Text="Форма проверки знаний:"
                                             FontSize="Medium"
-                                            VerticalOptions="CenterAndExpand"/>
+                                            VerticalOptions="CenterAndExpand"
+                                            TextColor="Black"/>
+                                    <Label  Text="{Binding IsExamString}"
+                                            FontSize="Medium"
+                                            VerticalOptions="CenterAndExpand"
+                                            HorizontalOptions="EndAndExpand"/>
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
                                     <Label  Text="Сумма баллов:"

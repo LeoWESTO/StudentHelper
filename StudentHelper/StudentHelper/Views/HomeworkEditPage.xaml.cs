@@ -15,10 +15,10 @@ namespace StudentHelper.Views
 	public partial class HomeworkEditPage : ContentPage
 	{
         EditHomeworkViewModel vm;
-		public HomeworkEditPage (Homework hw = null, Subject subject = null, LessonType type = LessonType.Seminar)
+		public HomeworkEditPage (Homework hw = null)
 		{
 			InitializeComponent();
-            vm = new EditHomeworkViewModel(hw, subject, type, Navigation);
+            vm = new EditHomeworkViewModel(hw, Navigation);
             BindingContext = vm;
 		}
     }
